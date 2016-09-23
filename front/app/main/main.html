@@ -17,7 +17,7 @@
         <td>{{record.time}}h</td>
         <td>{{record.note}}</td>
         <td>
-
+          <a href="#" ng-click="updateRecord(record, $index)"><i class="fa fa-pencil"></i></a>
         </td>
       </tr>
       <tr ng-show="!records.length">
