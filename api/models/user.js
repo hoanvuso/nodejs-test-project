@@ -8,14 +8,17 @@ var UserSchema = new Schema({
   name: String,
   email: {
     type: String,
-    required: true,
+    required: 'Email is required',
     index: {
       unique: true,
       sparse: true
     }
   },
   salt: String,
-  password: String
+  password: {
+    type: String,
+    required: 'Password is required'
+  }
 });
 
 /**
