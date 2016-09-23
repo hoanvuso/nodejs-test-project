@@ -29,16 +29,17 @@ UserSchema
     }
 
     // Make salt with a callback
-    this.makeSalt((saltErr, salt) => {
+    var _this = this;
+    this.makeSalt(function(saltErr, salt) {
       if (saltErr) {
         next(saltErr);
       }
-      this.salt = salt;
-      this.encryptPassword(this.password, function(encryptErr, hashedPassword) {
+      _this.salt = salt;
+      _this.encryptPassword(_this.password, function(encryptErr, hashedPassword) {
         if (encryptErr) {
           next(encryptErr);
         }
-        this.password = hashedPassword;
+        _this.password = hashedPassword;
         next();
       });
     });
@@ -62,10 +63,11 @@ UserSchema.methods = {
       return this.password === this.encryptPassword(password);
     }
 
+    var _this = this;
     this.encryptPassword(password, function(err, pwdGen) {
       if (err) { return callback(err); }
 
-      if (this.password === pwdGen) {
+      if (_this.password === pwdGen) {
         callback(null, true);
       } else {
         callback(null, false);
@@ -99,7 +101,7 @@ UserSchema.methods = {
       return crypto.randomBytes(byteSize).toString('base64');
     }
 
-    return crypto.randomBytes(byteSize, (err, salt) => {
+    return crypto.randomBytes(byteSize, function(err, salt) {
       if (err) {
         callback(err);
       } else {

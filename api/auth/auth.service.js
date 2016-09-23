@@ -42,7 +42,7 @@ exports.isAuthenticated = function() {
 /**
  * Returns a jwt token signed by the app secret
  */
-exports.signToken = function(id, role) {
+exports.signToken = function(id) {
   return jwt.sign({ _id: id }, config.secrets.session, {
     expiresIn: 60 * 60 * 5
   });
