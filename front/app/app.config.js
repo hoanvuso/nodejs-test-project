@@ -9,7 +9,7 @@ angular.module('testApp')
   .state('main', {
     url: '/',
     templateUrl: 'app/main/main.html',
-    controller: 'mainCtrl'
+    controller: 'MainCtrl'
   })
   .state('signup', {
     url: '/signup',

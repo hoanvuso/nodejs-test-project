@@ -1,1 +1,29 @@
-ss
+<div class="row">
+  <h1>Time records</h1>
+
+  <table class="table table-stripe">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Total time</th>
+        <th>Notes</th>
+        <th>#</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="record in records track by $index">
+        <td>{{record.date|date:'short'}}</td>
+        <td>{{record.time}}h</td>
+        <td>{{record.note}}</td>
+        <td>
+
+        </td>
+      </tr>
+      <tr ng-show="!records.length">
+        <td colspan="4">
+          <p class="alert">Dont have any record, try to <a ui-sref="recordCreate">create new</a></p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
