@@ -1,0 +1,30 @@
+<div class="modal-header">
+  <h3 class="modal-title" id="modal-title">{{record._id ? 'Update' : 'Create'}} record</h3>
+</div>
+<div class="modal-body" id="modal-body">
+  <form ng-submit="submit()">
+    <div class="form-group">
+      <label>Date</label>
+
+      <p class="input-group">
+        <input type="text" class="form-control" uib-datepicker-popup ng-model="record.date" is-open="dp" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+        <span class="input-group-btn">
+          <button type="button" class="btn btn-default" ng-click="dp=true"><i class="glyphicon glyphicon-calendar"></i></button>
+        </span>
+      </p>
+    </div>
+
+    <div class="form-group">
+      <label>Time</label>
+      <input type="number" required ng-model="record.totalTime" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Notes</label>
+      <textarea class="form-control" ng-model="record.note"></textarea>
+    </div>
+
+    <div class="form-group">
+      <button class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+</div>

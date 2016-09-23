@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('testApp', ['ui.router'])
+angular.module('testApp', ['ui.router', 'ui.bootstrap'])
 .config(function($urlRouterProvider, $locationProvider) {
   $urlRouterProvider
     .otherwise('/');
