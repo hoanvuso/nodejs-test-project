@@ -38,4 +38,13 @@ angular.module('testApp').controller('MainCtrl', function($scope, $uibModal, $ht
       record = Object.assign(record, item);
     });
   };
+
+  $scope.deleteRecord = function(record, index) {
+    if (window.confirm('Are you sure?')) {
+      $http.delete('/api/records/' + record._id)
+      .then(function() {
+        $scope.records.splice(index, 1);
+      });
+    }
+  };
 });

@@ -18,6 +18,7 @@
         <td>{{record.note}}</td>
         <td>
           <a href="#" ng-click="updateRecord(record, $index)"><i class="fa fa-pencil"></i></a>
+          <a href="#" ng-click="deleteRecord(record, $index)"><i class="fa fa-trash"></i></a>
         </td>
       </tr>
       <tr ng-show="!records.length">
