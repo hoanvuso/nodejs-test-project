@@ -14,3 +14,16 @@ exports.create = function(req, res) {
     res.status(201).json({token: token});
   });
 };
+
+exports.me = function(req, res) {
+  User.findOne({ _id: req.user._id }, '-salt -password', function(err, data) {
+    if (err) {
+      return res.status(500).end();
+    }
+
+    if (!data) {
+      return res.status(401).end();
+    }
+    res.status(200).json(data);
+  });
+};
