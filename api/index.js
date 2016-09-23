@@ -22,6 +22,8 @@ app.use(bodyParser.json());
 app.use(passport.initialize());
 app.use(express.static(path.resolve(config.rootDir + '/front')));
 
+require('./routes')(app);
+
 var server = http.createServer(app);
 server.listen(config.port, config.ip, function() {
   console.log('Server listening on %d', config.port);

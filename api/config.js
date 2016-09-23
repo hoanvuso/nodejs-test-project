@@ -13,5 +13,9 @@ module.exports = {
     //more option can see in the mongoose doc
   },
 
+  secrets: {
+    session: 'the-secret' //key for jwt encrypt
+  },
+
   rootDir: path.resolve(__dirname + '/../')
 };
