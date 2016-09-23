@@ -18,7 +18,7 @@ angular.module('testApp').controller('SigninCtrl', function($rootScope, $scope, 
         //This is temp function, should store in the cookies...
         $rootScope.token = resp.token;
         // Logged in, redirect to home
-        $scope.$state.go('main');
+        $state.go('main');
       }, function(err) {
         $scope.errors.other = err.data.message;
       });
